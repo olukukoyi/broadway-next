@@ -11,10 +11,11 @@ interface DisplayShowsProps {
 function DisplayShows({ shows }: DisplayShowsProps) {
   return (
     <>
+      {" "}
+      <div>Broadway shows:</div>
       {shows.map((item: Show, idx: number) => {
         return <ShowDisplay key={idx} show={item} />;
       })}
-      <div>DisplayShows</div>
     </>
   );
 }
