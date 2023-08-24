@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import Link from "next/link";
-import { authOptions } from "../lib/auth";
+import { authOptions } from "@/lib/auth";
 import SignoutNav from "./SignoutNav";
 
 async function Navbar() {

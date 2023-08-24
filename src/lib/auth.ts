@@ -53,8 +53,8 @@ export const authOptions: NextAuthOptions = {
       },
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID ?? "", // nullish operator, incase null on runtime
-      clientSecret: process.env.GOOGLE_SECRET ?? "", // nullish operator, incase null on runtime
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "", // nullish operator, incase null on runtime
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "", // nullish operator, incase null on runtime
     }),
   ],
   callbacks: {

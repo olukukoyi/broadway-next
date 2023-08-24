@@ -9,3 +9,21 @@ declare global {
 export const prisma = global.prisma || new PrismaClient();
 
 if (process.env.NODE_ENV !== "production") global.prisma = prisma;
+
+export interface Show {
+  id: string;
+  name?: string;
+  plot?: string;
+  setting?: String;
+  date?: Date;
+  time?: Date;
+  theater?: String;
+  performers?: String;
+}
+
+export interface Performer {
+  id: string;
+  name: string;
+  background: string;
+  Show: Show[];
+}
