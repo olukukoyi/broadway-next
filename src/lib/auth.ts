@@ -7,7 +7,7 @@ import { compare } from "bcrypt";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  // adapter: PrismaAdapter(prisma),
   secret: process.env.NEXT_AUTH_SECRET,
   pages: { signIn: "/sign-in" },
   session: {
