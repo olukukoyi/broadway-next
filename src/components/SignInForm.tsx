@@ -86,29 +86,35 @@ function SignInForm() {
                 <p className="text-red-500">{errors.password.message}</p>
               )}
 
-          <button
-            className="rounded-lg border text-white bg-green-600 p-2 w-[200px] hover:bg-green-800"
-            type="submit"
-            onClick={handleSubmit(onSubmitCredentials)}
-          >
-            Sign In!
-          </button>
-          <p className="text-sm text-secondary">
-            {" "}
-            If you dont have an account, please{" "}
-            <a className="underline font-bold text-smoke">Sign Up</a>
-          </p>
-        </div>
-      </form>
+              <button
+                className="rounded-lg border text-white bg-green-600 p-2 w-[200px] hover:bg-green-800"
+                type="submit"
+                onClick={handleSubmit(onSubmitCredentials)}
+              >
+                Sign In!
+              </button>
+              <p className="text-sm text-secondary">
+                {" "}
+                If you dont have an account, please{" "}
+                <Link href="/sign-up" className="underline text-smoke font-bold">
+                  Sign Up
+                </Link>
+              </p>
+            </div>
+          </form>
 
-      <button
-        onClick={signInWithGoogle}
-        className=" p-2 border hover:border-foreground border-2 rounded-lg  text-white bg-gray-600 p-2 w-[200px] hover:bg-white hover:text-primary "
-        type="submit"
-      >
-        Sign in with google
-      </button>
-    </>
+          <button
+            onClick={signInWithGoogle}
+            className="p-2 border hover:border-foreground border-2 rounded-lg  text-white bg-gray-600 p-2 w-[200px] hover:bg-white hover:text-primary"
+            type="submit"
+          >
+            Sign in with google
+          </button>
+        </div>
+      ) : (
+        <h2 className="underline">LOADING!!!!</h2>
+      )}
+    </div>
   );
 }
 
