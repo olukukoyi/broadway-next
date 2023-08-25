@@ -4,7 +4,7 @@ import { authOptions } from "@/lib/auth";
 
 async function page() {
   const session = await getServerSession(authOptions);
-  console.log(session);
+  console.log("Current user session: ", session);
 
   if (session?.user) {
     return (
