@@ -35,16 +35,16 @@ const Page = async ({ params }: pageProps) => {
   console.log(performersArray);
 
   return (
-    <div className="flex flex-col items-center justify-center border">
-      <h1>show details id: {params.showId}</h1>
-      <h1>Show: {show?.name}</h1>
-      <div className="flex flex-col space-y-3 items-center justify-center">
-        Performers:
+    <div className="flex flex-col items-center h-screen justify-center border text-white bg-bluegray bg-opacity-60">
+      <h1 className=" flex text-lightblue text-3xl font-bold bg-black bg-opacity-30 rounded px-2 py-4">Show details id: <h2 className="text-smoke underline font-medium px-2">{params.showId}</h2></h1>
+      <h1 className=" flex text-lightblue text-3xl font-bold bg-black bg-opacity-30 rounded px-2 py-4">Show: <h2 className="text-red font-medium px-2">{show?.name}</h2></h1>
+      <div className="flex flex-col space-y-3 items-center justify-center text-3xl px-2 py-4">
+        <h1 className="text-lightblue font-bold bg-black bg-opacity-30 rounded">Performers:</h1>
         {performersArray?.map((name) => {
           return <Card key={name} name={name}></Card>;
         })}
       </div>
-      <h1>ID for stripe: {show?.stripId}</h1>
+      <h1 className="flex text-lightblue text-3xl font-bold bg-black bg-opacity-30 rounded px-2 py-4">ID for stripe: <h2 className="text-smoke underline font-medium px-2">{show?.stripId}</h2></h1>
     </div>
   );
 };

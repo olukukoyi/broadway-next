@@ -1,7 +1,7 @@
 import React from "react";
 
 function ShowDetails() {
-  return <div>ShowDetails</div>;
+  return <div className="">ShowDetails</div>;
 }
 
 export default ShowDetails;

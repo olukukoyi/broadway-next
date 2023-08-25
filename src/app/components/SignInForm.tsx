@@ -55,12 +55,12 @@ function SignInForm() {
 
   return (
     <form
-      className="flex items-center flex-col mt-10"
+      className="flex items-center flex-col mt-10 bg-blue bg-opacity-50 p-4"
       // onSubmit={handleSubmit(onSubmit)}
       // onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="font-bold underline">Sign In</h1>
-      <div className="p-10 space-y-3 flex flex-col items-center justify-center">
+      <h1 className="font-bold p-2 border rounded bg-secondary">Sign In</h1>
+      <div className="p-10 space-y-3 flex flex-col items-center justify-center bg-white">
         <input
           className="border p-3  items-center justift-start flex outline-none rounded text-sm w-[200px]"
           placeholder="email@example.com"
@@ -78,7 +78,7 @@ function SignInForm() {
         )}
 
         <button
-          className="rounded-lg border text-white bg-green-600 p-2 w-[200px]"
+          className="rounded-lg border text-white bg-green-600 p-2 w-[200px] hover:bg-green-800"
           type="submit"
           onClick={handleSubmit(onSubmitCredentials)}
         >
@@ -87,7 +87,7 @@ function SignInForm() {
         <p> or </p>
         <button
           onClick={handleSubmit(onSubmitGoogle)}
-          className="rounded-lg border text-white bg-gray-600 p-2 w-[200px]"
+          className=" p-2 border hover:border-foreground border-2 rounded-lg  text-white bg-gray-600 p-2 w-[200px] hover:bg-white hover:text-primary "
           type="submit"
         >
           Sign in with google

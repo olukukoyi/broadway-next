@@ -57,11 +57,11 @@ function SignInForm() {
   return (
     <>
       <form
-        className="flex items-center flex-col mt-10"
+        className="flex items-center flex-col mt-10 bg-blue bg-opacity-50 p-4"
         // onSubmit={handleSubmit(onSubmit)}
         // onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="font-bold underline">Sign In</h1>
+        <h1 className="font-bold p-2 border rounded bg-secondary">Sign In</h1>
         <div className="p-10 space-y-3 flex flex-col items-center justify-center">
           <input
             className="border p-3  items-center justift-start flex outline-none rounded text-sm w-[200px]"
@@ -72,7 +72,7 @@ function SignInForm() {
             <p className="text-red-500">{errors.email.message}</p>
           )}
           <input
-            className="border p-3  items-center justift-start flex outline-none rounded text-sm w-[200px]"
+            className="border p-3 items-center justift-start flex outline-none rounded text-sm w-[200px]"
             type="password"
             placeholder="Enter your password"
             {...register("password")}
@@ -82,23 +82,23 @@ function SignInForm() {
           )}
 
           <button
-            className="rounded-lg border text-white bg-green-600 p-2 w-[200px]"
+            className="rounded-lg border text-white bg-green-600 p-2 w-[200px] hover:bg-green-800"
             type="submit"
             onClick={handleSubmit(onSubmitCredentials)}
           >
             Sign In!
           </button>
-          <p className="text-sm">
+          <p className="text-sm text-secondary">
             {" "}
             If you dont have an account, please{" "}
-            <a className="underline text-blue-600">Sign Up</a>
+            <a className="underline font-bold text-smoke">Sign Up</a>
           </p>
         </div>
       </form>
 
       <button
         onClick={signInWithGoogle}
-        className="rounded-lg border text-white bg-gray-600 p-2 w-[200px]"
+        className=" p-2 border hover:border-foreground border-2 rounded-lg  text-white bg-gray-600 p-2 w-[200px] hover:bg-white hover:text-primary "
         type="submit"
       >
         Sign in with google

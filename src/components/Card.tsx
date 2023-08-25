@@ -9,7 +9,7 @@ interface CardProps {
 }
 
 const Card = ({ name }: CardProps) => {
-  return <div>{name}</div>;
+  return <div className="font-bold bg-red bg-opacity-50 px-2 py-4 rounded" >{name}</div>;
 };
 
 export default Card;

@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className + 'bg-cover bg-center h-screen w-screen overflow-hidden backdrop-blur-xs'}style={{backgroundImage:'url("https://i.imgur.com/RGHLuUA.jpg")'}}>
         <Provider>
           <Navbar />
           {children}
