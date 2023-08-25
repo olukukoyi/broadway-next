@@ -11,7 +11,7 @@ async function page() {
       <div className="flex items-center justify-center">
         <h2 className="text-2xl ">
           Dashboad - welcome back {session?.user.username}
-        </h2>{" "}
+        </h2>
         <hr></hr>
         <h2 className="text-2xl underline ">Purchases:</h2>
       </div>
