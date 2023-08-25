@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 
 const FormSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email"),
@@ -24,6 +25,7 @@ type FormData = {
 
 function SignInForm() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
 
   const {
     register,
@@ -44,7 +46,8 @@ function SignInForm() {
     if (signInData?.error) {
       console.log(signInData?.error);
     } else {
-      router.refresh();
+      // router.refresh();
+      setLoading(false);
       router.push("/dashboard");
     }
   };
@@ -84,9 +87,8 @@ function SignInForm() {
           <button
             className="rounded-lg border text-white bg-green-600 p-2 w-[200px] hover:bg-green-800"
             type="submit"
-            onClick={handleSubmit(onSubmitCredentials)}
           >
-            Sign In!
+            Sign in with google
           </button>
           <p className="text-sm text-secondary">
             {" "}
@@ -104,6 +106,11 @@ function SignInForm() {
         Sign in with google
       </button>
     </>
+        </div>
+      ) : (
+        <h2 className="underline">LOADING!!!!</h2>
+      )}
+    </div>
   );
 }
 

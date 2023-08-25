@@ -5,8 +5,6 @@ export async function GET(req: Request) {
   try {
     const shows = await prisma.show.findMany();
 
-    console.log(shows);
-
     return NextResponse.json({ shows });
   } catch (error) {
     console.log(error);

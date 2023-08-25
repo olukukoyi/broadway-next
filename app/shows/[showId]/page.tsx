@@ -1,13 +1,14 @@
 import Card from "@/components/Card";
+import { notFound } from "next/navigation";
 import React, { FC } from "react";
 import { prisma } from "../../../src/lib/db";
+import StripeButton from "@/components/StripeButton";
 
 interface pageProps {
   params: { showId: string };
 }
 
 const getShowDetails = async (id: string) => {
-  console.log("loading");
   const res = await prisma?.show.findUnique({
     where: {
       id,
@@ -32,7 +33,9 @@ const Page = async ({ params }: pageProps) => {
     performersArray = show?.performers;
   }
 
-  console.log(performersArray);
+  if (!show) {
+    notFound();
+  }
 
   return (
     <div className="flex flex-col items-center h-screen justify-center border text-white bg-bluegray bg-opacity-60">
@@ -45,8 +48,18 @@ const Page = async ({ params }: pageProps) => {
         })}
       </div>
       <h1 className="flex text-lightblue text-3xl font-bold bg-black bg-opacity-30 rounded px-2 py-4">ID for stripe: <h2 className="text-smoke underline font-medium px-2">{show?.stripId}</h2></h1>
+
     </div>
   );
 };
 
 export default Page;
+
+export async function generateStaticParams() {
+  // const posts = await fetch("https://.../posts").then((res) => res.json());
+  const shows = await prisma.show.findMany();
+
+  return shows.map((show) => ({
+    showId: show.id,
+  }));
+}

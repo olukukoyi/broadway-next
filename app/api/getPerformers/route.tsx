@@ -5,7 +5,7 @@ export async function GET(req: Request) {
   try {
     const performers = await prisma.performer.findMany();
 
-    console.log(performers);
+    console.log("Performers (from getPerformers route):", performers);
 
     return NextResponse.json({ performers });
   } catch (error) {
