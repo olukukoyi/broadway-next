@@ -7,7 +7,7 @@ async function Navbar() {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className="w-full flex items-center justify-between px-8 py-4 border-b bg-foreground">
+    <div className="w-full flex items-center justify-between px-8 py-4 border-b bg-foreground fixed z-10">
       <div className="text-white font-medium"><Link href="/">HOME</Link></div>
       <div className="flex w-[25%] justify-between">
         {session?.user ? (
