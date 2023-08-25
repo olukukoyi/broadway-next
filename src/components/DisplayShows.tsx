@@ -12,7 +12,7 @@ function DisplayShows({ shows }: DisplayShowsProps) {
   return (
     <>
       {" "}
-      <div>Broadway shows:</div>
+      <div className="p-6 flex justify-center text-blue font-bold text-3xl"> <h1>Broadway shows:-</h1></div>
       {shows.map((item: Show, idx: number) => {
         return <ShowDisplay key={idx} show={item} />;
       })}

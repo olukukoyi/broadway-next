@@ -11,7 +11,7 @@ export default async function Page() {
   const shows = await getShows();
 
   return (
-    <div>
+    <div className="bg-darkblue bg-opacity-40">
       <DisplayShows shows={shows} />
     </div>
   );

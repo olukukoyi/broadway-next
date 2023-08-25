@@ -7,7 +7,7 @@ function SignoutNav() {
   return (
     <div>
       <button
-        className="bg-gray-600 rounded p-1 px-2 text-white hover:bg-white hover:text-gray-600 ease-in transition duration-300"
+        className="bg-gray-600 rounded p-1 px-2 text-background hover:bg-white hover:text-primary ease-in transition duration-300"
         onClick={() => {
           signOut({
             redirect: true,
