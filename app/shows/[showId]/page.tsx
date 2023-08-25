@@ -1,5 +1,6 @@
 import Card from "@/components/Card";
 import { GetStaticPaths } from "next";
+import { notFound } from "next/navigation";
 import React, { FC } from "react";
 import { prisma } from "../../../src/lib/db";
 
@@ -32,6 +33,10 @@ const Page = async ({ params }: pageProps) => {
     performersArray = show?.performers;
   }
 
+  if (!show) {
+    notFound();
+  }
+
   return (
     <div className="flex flex-col items-center justify-center border">
       <h1>show details id: {params.showId}</h1>
@@ -49,15 +54,13 @@ const Page = async ({ params }: pageProps) => {
 
 export default Page;
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export async function generateStaticParams() {
+  // const posts = await fetch("https://.../posts").then((res) => res.json());
   const shows = await prisma.show.findMany();
-  const pathsArray = [];
-  for (const show of shows) {
-    pathsArray.push({ params: { showId: show.id } });
-  }
 
-  return {
-    paths: pathsArray,
-    fallback: false,
-  };
-};
+  console.log(shows);
+
+  return shows.map((show) => ({
+    showId: show.id,
+  }));
+}
