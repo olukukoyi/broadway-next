@@ -8,7 +8,6 @@ interface ShowDisplayProps {
 
 export const ShowDisplay = ({ show }: ShowDisplayProps) => {
   const showId = show.id;
-  console.log(showId);
   return (
     <div className="flex flex-col border items-center justify-center">
       {show.name} <Link href={`/shows/${showId}`}>show details</Link>

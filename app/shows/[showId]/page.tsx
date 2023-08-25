@@ -1,4 +1,5 @@
 import Card from "@/components/Card";
+import { GetStaticPaths } from "next";
 import React, { FC } from "react";
 import { prisma } from "../../../src/lib/db";
 
@@ -7,7 +8,6 @@ interface pageProps {
 }
 
 const getShowDetails = async (id: string) => {
-  console.log("loading");
   const res = await prisma?.show.findUnique({
     where: {
       id,
@@ -32,8 +32,6 @@ const Page = async ({ params }: pageProps) => {
     performersArray = show?.performers;
   }
 
-  console.log(performersArray);
-
   return (
     <div className="flex flex-col items-center justify-center border">
       <h1>show details id: {params.showId}</h1>
@@ -50,3 +48,16 @@ const Page = async ({ params }: pageProps) => {
 };
 
 export default Page;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const shows = await prisma.show.findMany();
+  const pathsArray = [];
+  for (const show of shows) {
+    pathsArray.push({ params: { showId: show.id } });
+  }
+
+  return {
+    paths: pathsArray,
+    fallback: false,
+  };
+};
