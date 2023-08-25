@@ -28,7 +28,7 @@ function StripeButton({ show }: pageProps) {
   };
   return (
     <form onSubmit={handleCheckout}>
-      <button>Buy tickets for show</button>
+      <button className="rounded-lg border text-white bg-green-600 p-2 w-[200px] hover:bg-darkblue">Buy tickets for show</button>
     </form>
   );
 }
