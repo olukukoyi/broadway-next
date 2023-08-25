@@ -10,6 +10,7 @@ export default function Home() {
 
       <h1 className="text-3xl px-6 py-4 bg-smoke opacity-70 rounded">HOME</h1>
       <Link href="/dashboard" className="border px-4 py-2 rounded bg-darkblue bg-opacity-80 text-white hover:bg-darkblue">Go to Dashboard</Link>
+      <Link href="/shows" className="border px-4 py-2 rounded bg-darkblue bg-opacity-80 text-white hover:bg-darkblue">Go to shows</Link>
     </div>
   );
 }

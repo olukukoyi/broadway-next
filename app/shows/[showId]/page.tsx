@@ -48,7 +48,7 @@ const Page = async ({ params }: pageProps) => {
         })}
       </div>
       <h1 className="flex text-lightblue text-3xl font-bold bg-black bg-opacity-30 rounded px-2 py-4">ID for stripe: <h2 className="text-smoke underline font-medium px-2">{show?.stripId}</h2></h1>
-
+      <StripeButton show={show} />
     </div>
   );
 };
