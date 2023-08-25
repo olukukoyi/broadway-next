@@ -1,8 +1,8 @@
 import Card from "@/components/Card";
-import { GetStaticPaths } from "next";
 import { notFound } from "next/navigation";
 import React, { FC } from "react";
 import { prisma } from "../../../src/lib/db";
+import StripeButton from "@/components/StripeButton";
 
 interface pageProps {
   params: { showId: string };
@@ -48,6 +48,7 @@ const Page = async ({ params }: pageProps) => {
         })}
       </div>
       <h1>ID for stripe: {show?.stripId}</h1>
+      <StripeButton show={show} />
     </div>
   );
 };
@@ -57,8 +58,6 @@ export default Page;
 export async function generateStaticParams() {
   // const posts = await fetch("https://.../posts").then((res) => res.json());
   const shows = await prisma.show.findMany();
-
-  console.log(shows);
 
   return shows.map((show) => ({
     showId: show.id,

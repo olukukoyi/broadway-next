@@ -8,7 +8,7 @@ async function Navbar() {
 
   return (
     <div className="w-full flex items-center justify-between px-8 py-4 border-b">
-      <div>HOME</div>
+      <Link href="/">HOME</Link>
       <div className="flex w-[25%] justify-between">
         {session?.user ? (
           <SignoutNav />

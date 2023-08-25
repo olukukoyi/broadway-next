@@ -12,13 +12,14 @@ if (process.env.NODE_ENV !== "production") global.prisma = prisma;
 
 export interface Show {
   id: string;
-  name?: string;
-  plot?: string;
-  setting?: String;
-  date?: Date;
-  time?: Date;
-  theater?: String;
-  performers?: String;
+  name?: string | null;
+  plot?: string | null;
+  setting?: string | null;
+  date?: Date | null;
+  time?: Date | null;
+  theater?: string | null;
+  performers?: string | null;
+  stripId?: string | null;
 }
 
 export interface Performer {

@@ -4,14 +4,16 @@ import { authOptions } from "@/lib/auth";
 
 async function page() {
   const session = await getServerSession(authOptions);
-  console.log("Session: ", session);
+  console.log("Current user session: ", session);
 
   if (session?.user) {
     return (
       <div className="flex items-center justify-center">
         <h2 className="text-2xl ">
-          Dashboad - welcome back{session?.user.username}
+          Dashboad - welcome back {session?.user.username}
         </h2>{" "}
+        <hr></hr>
+        <h2 className="text-2xl underline ">Purchases:</h2>
       </div>
     );
   }
