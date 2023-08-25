@@ -38,12 +38,13 @@ const Page = async ({ params }: pageProps) => {
     <div className="flex flex-col items-center justify-center border">
       <h1>show details id: {params.showId}</h1>
       <h1>Show: {show?.name}</h1>
-      <h1>
+      <div className="flex flex-col space-y-3 items-center justify-center">
         Performers:
         {performersArray?.map((name) => {
           return <Card key={name} name={name}></Card>;
         })}
-      </h1>
+      </div>
+      <h1>ID for stripe: {show?.stripId}</h1>
     </div>
   );
 };
